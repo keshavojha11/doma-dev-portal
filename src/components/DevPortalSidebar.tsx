@@ -48,7 +48,6 @@ const navigationItems = [
   { title: "FAQ", url: "/faq", icon: HelpCircle },
   { title: "Community", url: "/community", icon: Users },
   { title: "Blog", url: "/blog", icon: Newspaper },
-  { title: "Legal", url: "/legal", icon: Scale },
 ];
 
 const externalLinks = [
