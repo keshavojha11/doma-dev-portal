@@ -15,6 +15,14 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function FAQ() {
+  // Static color mappings for Tailwind classes
+  const colorMap = {
+    primary: "text-primary bg-primary/20",
+    accent: "text-accent bg-accent/20",
+    success: "text-green-500 bg-green-100",
+    warning: "text-yellow-500 bg-yellow-100",
+    destructive: "text-red-500 bg-red-100"
+  };
   const faqCategories = [
     {
       title: "Getting Started",
@@ -152,15 +160,15 @@ export default function FAQ() {
           {faqCategories.map((category, index) => (
             <button
               key={index}
-              className={`card-cyber p-4 text-center hover:border-${category.color}/50 transition-all duration-200 group`}
+              className={`card-cyber p-4 text-center border border-transparent hover:border-${category.color}/50 transition-all duration-200 group rounded-xl bg-white/60 shadow-md`}
               onClick={() => {
                 document.getElementById(category.title.toLowerCase().replace(/\s+/g, '-'))?.scrollIntoView({ 
                   behavior: 'smooth' 
                 });
               }}
             >
-              <category.icon className={`w-6 h-6 text-${category.color} mx-auto mb-2 group-hover:scale-110 transition-transform`} />
-              <h3 className="text-sm font-medium">{category.title}</h3>
+              <category.icon className={`w-6 h-6 mx-auto mb-2 ${colorMap[category.color]?.split(' ')[0] || ''} group-hover:scale-110 transition-transform`} />
+              <h3 className="text-sm font-medium text-foreground/90">{category.title}</h3>
             </button>
           ))}
         </div>
@@ -175,37 +183,24 @@ export default function FAQ() {
             className="scroll-mt-24"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className={`w-10 h-10 bg-${category.color}/20 rounded-lg flex items-center justify-center`}>
-                <category.icon className={`w-5 h-5 text-${category.color}`} />
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${colorMap[category.color]?.split(' ')[1] || ''}`}> 
+                <category.icon className={`w-5 h-5 ${colorMap[category.color]?.split(' ')[0] || ''}`} />
               </div>
-              <h2 className="text-2xl font-bold text-foreground">{category.title}</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{category.title}</h2>
             </div>
-            
-            <div className="card-cyber">
-              <CardContent className="p-0">
-                <Accordion type="single" collapsible className="w-full">
-                  {category.questions.map((faq, questionIndex) => (
-                    <AccordionItem 
-                      key={questionIndex} 
-                      value={`${categoryIndex}-${questionIndex}`}
-                      className="border-border/50"
-                    >
-                      <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-muted/50 transition-colors">
-                        <div className="flex items-center gap-3 text-left">
-                          <HelpCircle className={`w-4 h-4 text-${category.color} flex-shrink-0`} />
-                          <span className="font-medium">{faq.question}</span>
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="px-6 pb-4">
-                        <div className="pl-7">
-                          <p className="text-muted-foreground leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+            <div className="bg-[#f8fafc] shadow rounded-xl p-0">
+              <CardContent className="p-0 divide-y divide-border">
+                {category.questions.map((faq, questionIndex) => (
+                  <div key={questionIndex} className="px-6 py-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <HelpCircle className={`w-4 h-4 ${colorMap[category.color]?.split(' ')[0] || ''} flex-shrink-0`} />
+                      <span className="font-semibold text-lg text-gray-900">{faq.question}</span>
+                    </div>
+                    <div className="pl-7">
+                      <p className="leading-relaxed text-gray-900 text-base">{faq.answer}</p>
+                    </div>
+                  </div>
+                ))}
               </CardContent>
             </div>
           </div>
