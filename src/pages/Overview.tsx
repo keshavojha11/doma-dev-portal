@@ -12,8 +12,9 @@ export default function Overview() {
           Protocol Overview
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Doma transforms domain names into programmable, tokenized assets within the DomainFi ecosystem, 
-          enabling new forms of domain ownership, trading, and utility.
+          DomainFi represents a new economic paradigm for the $340B+ domain industry. 
+          Doma Protocol transforms domains into programmable, blockchain-based assets, 
+          addressing critical limitations in traditional domain management.
         </p>
       </div>
 
@@ -25,30 +26,30 @@ export default function Overview() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-foreground">
-              Doma is a decentralized protocol that tokenizes domain names, making them programmable and 
-              composable within the web3 ecosystem. By bridging traditional domain registrars with blockchain 
-              infrastructure, Doma unlocks new possibilities for domain ownership and utility.
+              Doma Protocol revolutionizes the domain landscape by transforming domains into programmable, 
+              blockchain-based assets. It provides secure onramps for Registrars and Registries to tokenize 
+              domains while maintaining full ICANN compliance and seamless integration with existing domain infrastructure.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-muted rounded-lg p-4">
                 <Coins className="w-8 h-8 text-primary mb-2" />
-                <h3 className="font-semibold mb-2">Tokenization</h3>
+                <h3 className="font-semibold mb-2">Trusted Tokenization</h3>
                 <p className="text-sm text-muted-foreground">
-                  Convert domains into ERC-721 and synthetic tokens
+                  Secure onramp for registrars with ICANN compliance
                 </p>
               </div>
               <div className="bg-muted rounded-lg p-4">
                 <Zap className="w-8 h-8 text-accent mb-2" />
-                <h3 className="font-semibold mb-2">Programmability</h3>
+                <h3 className="font-semibold mb-2">State Synchronization</h3>
                 <p className="text-sm text-muted-foreground">
-                  Smart contracts enable automated domain operations
+                  Bi-directional sync between blockchain and DNS
                 </p>
               </div>
               <div className="bg-muted rounded-lg p-4">
                 <Network className="w-8 h-8 text-success mb-2" />
-                <h3 className="font-semibold mb-2">Interoperability</h3>
+                <h3 className="font-semibold mb-2">Multi-Chain Support</h3>
                 <p className="text-sm text-muted-foreground">
-                  Cross-chain domain management and transfers
+                  Native integration across Layer1 and Layer2 networks
                 </p>
               </div>
             </div>
@@ -64,9 +65,10 @@ export default function Overview() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-foreground">
-              DomainFi represents the financialization of domain names through decentralized finance (DeFi) 
-              protocols. It encompasses lending, borrowing, fractionalization, and yield generation using 
-              domain names as underlying assets.
+              DomainFi represents a new economic paradigm addressing critical challenges in the $340B+ domain ecosystem. 
+              Traditional domain management faces high barriers to entry, opaque secondary markets with friction, 
+              and lack of programmability. Doma enables instant-settlement marketplaces, fractional ownership, 
+              collateralized lending, and automated rental systems.
             </p>
             <div className="bg-gradient-glow rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-4 text-primary">Key DomainFi Use Cases</h3>

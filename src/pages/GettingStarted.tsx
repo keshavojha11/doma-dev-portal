@@ -13,8 +13,8 @@ export default function GettingStarted() {
           Getting Started
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Start building with Doma in minutes. Set up your development environment, 
-          connect to testnet, and tokenize your first domain.
+          Follow this step-by-step guide to tokenize your first domain using the Doma Protocol. 
+          Use the D3 testnet registrar to test domain tokenization with .io domains.
         </p>
       </div>
 
@@ -253,38 +253,40 @@ console.log('Doma SDK initialized successfully!');`}
                 <div>
                   <h3 className="text-lg font-semibold mb-4">Tokenize Your First Domain</h3>
                   <div className="space-y-4">
-                    <div className="bg-muted rounded-lg p-4">
-                      <h4 className="font-medium mb-2">Step 1: Register a Test Domain</h4>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Visit the testnet registrar to register a .test domain for free
-                      </p>
-                      <Button size="sm" variant="outline" asChild>
-                        <a href="https://testnet.d3.app" target="_blank" rel="noopener noreferrer">
-                          Go to Registrar
-                        </a>
-                      </Button>
-                    </div>
+                  <div>
+                    <h4 className="font-medium mb-2">Step 1: Visit D3 Testnet Registrar</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Navigate to the D3 testnet registrar and login/register for an account
+                    </p>
+                    <Button size="sm" variant="outline" asChild>
+                      <a href="https://testnet.d3.app" target="_blank" rel="noopener noreferrer">
+                        Go to D3 Testnet
+                      </a>
+                    </Button>
+                  </div>
 
-                    <div className="bg-muted rounded-lg p-4">
-                      <h4 className="font-medium mb-2">Step 2: Initialize Tokenization</h4>
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Use the Doma SDK to tokenize your registered domain
-                      </p>
-                      <pre className="text-xs bg-background p-3 rounded border overflow-x-auto">
-{`const domain = await doma.tokenizeDomain({
-  name: 'mydomain.test',
-  owner: '0x...',
-  registrar: 'testnet'
-});`}
-                      </pre>
-                    </div>
+                  <div className="bg-muted rounded-lg p-4">
+                    <h4 className="font-medium mb-2">Step 2: Search and Purchase .io Domain</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Search for an available .io domain name and purchase it using either:
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 mb-3">
+                      <li>• <strong>Fiat:</strong> Any Stripe test card (e.g., 4242424242424242)</li>
+                      <li>• <strong>Crypto:</strong> Testnet tokens on supported chains</li>
+                    </ul>
+                  </div>
 
-                    <div className="bg-muted rounded-lg p-4">
-                      <h4 className="font-medium mb-2">Step 3: Verify Tokenization</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Check the testnet dashboard to see your tokenized domain
-                      </p>
-                    </div>
+                  <div className="bg-muted rounded-lg p-4">
+                    <h4 className="font-medium mb-2">Step 3: Tokenize Your Domain</h4>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Once purchased, go to your portfolio and click "Tokenize" next to your domain
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Choose your target blockchain for tokenization</li>
+                      <li>• Confirm the transaction to mint your Domain Ownership Token</li>
+                      <li>• Your domain will now be available as an NFT in your wallet</li>
+                    </ul>
+                  </div>
                   </div>
                 </div>
               </CardContent>
