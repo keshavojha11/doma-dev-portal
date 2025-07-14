@@ -1,265 +1,255 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { DomainVisualization } from "@/components/DomainVisualization";
+import { motion } from "framer-motion";
 import { 
   ArrowRight, 
-  ExternalLink, 
-  Coins, 
-  Network, 
-  Shield, 
   Zap,
-  Globe,
-  Code,
-  BookOpen,
-  Users,
   PlayCircle,
-  Github
+  Globe,
+  Coins,
+  Network,
+  Code
 } from "lucide-react";
 
 const Index = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="container mx-auto px-6 py-16 lg:py-24 max-w-6xl">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-6 animate-fade-in-up">
+      <section className="relative min-h-screen flex items-center justify-center">
+        <motion.div 
+          className="text-center max-w-6xl px-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div variants={itemVariants}>
+            <Badge variant="secondary" className="mb-8 bg-primary/20 text-primary border-primary/30">
               <Zap className="w-4 h-4 mr-2" />
-              Now Live on Testnet
+              Live on Testnet
             </Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-glow animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Build on{' '}
-              <span className="bg-gradient-cyber bg-clip-text text-transparent">
-                Doma
-              </span>
-            </h1>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Transform domain names into programmable, tokenized assets within the DomainFi ecosystem. 
-              Build the future of decentralized domain ownership.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              <Button className="btn-cyber text-lg px-8 py-4">
-                <PlayCircle className="w-5 h-5 mr-2" />
-                Get Started
-              </Button>
-              <Button variant="outline" className="text-lg px-8 py-4 border-primary/30 hover:border-primary">
-                <BookOpen className="w-5 h-5 mr-2" />
-                Read Docs
-              </Button>
-              <Button variant="outline" className="text-lg px-8 py-4 border-accent/30 hover:border-accent">
-                <Users className="w-5 h-5 mr-2" />
-                Join Community
-              </Button>
-            </div>
-          </div>
-
-          {/* Hero Animation/Diagram */}
-          <div className="relative max-w-4xl mx-auto mb-16">
-            <div className="card-cyber bg-gradient-to-br from-muted/20 to-background p-8 lg:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                {/* Traditional Domains */}
-                <div className="text-center animate-float">
-                  <div className="w-20 h-20 bg-muted rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-border">
-                    <Globe className="w-10 h-10 text-muted-foreground" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Traditional Domains</h3>
-                  <p className="text-sm text-muted-foreground">Web2 domain registrars</p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex justify-center">
-                  <ArrowRight className="w-8 h-8 text-primary animate-pulse-cyber" />
-                </div>
-
-                {/* Tokenized Domains */}
-                <div className="text-center animate-float" style={{ animationDelay: '2s' }}>
-                  <div className="w-20 h-20 bg-gradient-cyber rounded-xl flex items-center justify-center mx-auto mb-4 border-2 border-primary animate-pulse-cyber">
-                    <Coins className="w-10 h-10 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Tokenized Assets</h3>
-                  <p className="text-sm text-muted-foreground">Programmable domain tokens</p>
-                </div>
-              </div>
-              
-              <div className="text-center mt-8">
-                <p className="text-primary font-semibold">Doma Protocol Bridge</p>
-                <p className="text-sm text-muted-foreground">Seamlessly convert domains into blockchain assets</p>
-              </div>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+          
+          <motion.h1 
+            className="text-6xl md:text-8xl font-bold mb-8"
+            variants={itemVariants}
+          >
+            Turn Domains Into
+            <br />
+            <span className="bg-gradient-cyber bg-clip-text text-transparent animate-glow">
+              Digital Assets
+            </span>
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+            variants={itemVariants}
+          >
+            Transform any domain into a tradeable NFT.
+            <br />
+            No coding required. No middlemen.
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center mb-16"
+            variants={itemVariants}
+          >
+            <Button className="btn-cyber text-lg px-8 py-4 group">
+              <PlayCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+              Try It Now
+            </Button>
+            <Button variant="outline" className="text-lg px-8 py-4 border-primary/30 hover:border-primary">
+              Watch Demo
+            </Button>
+          </motion.div>
+          
+          {/* 3D Visualization */}
+          <motion.div variants={itemVariants}>
+            <DomainVisualization />
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Key Benefits */}
-      <section className="py-16 lg:py-24">
+      {/* How It Works - Simple Steps */}
+      <section className="py-24">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-glow">
-              Why Build on Doma?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Unlock new possibilities with programmable domain ownership and DomainFi infrastructure
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Coins,
-                title: "Domain Tokenization",
-                description: "Convert any domain into ERC-721 ownership tokens and ERC-20 synthetic tokens for fractional ownership and trading",
-                features: ["ERC-721 Ownership Tokens", "ERC-20 Synthetic Assets", "Fractional Ownership", "Instant Liquidity"],
-                color: "primary"
-              },
-              {
-                icon: Network,
-                title: "Cross-Chain Interoperability", 
-                description: "Manage and trade domain tokens across multiple blockchains with seamless bridge infrastructure",
-                features: ["Multi-Chain Support", "Atomic Swaps", "Unified Liquidity", "Gas Optimization"],
-                color: "accent"
-              },
-              {
-                icon: Shield,
-                title: "Composable Rights Management",
-                description: "Granular, programmable permissions for DNS control, revenue sharing, and domain operations",
-                features: ["Granular Permissions", "Revenue Sharing", "Time-locked Access", "Role-based Control"],
-                color: "success"
-              }
-            ].map((benefit, index) => (
-              <div key={index} className="card-cyber animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CardHeader>
-                  <div className={`w-12 h-12 bg-${benefit.color}/20 rounded-lg flex items-center justify-center mb-4`}>
-                    <benefit.icon className={`w-6 h-6 text-${benefit.color}`} />
-                  </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-6">{benefit.description}</p>
-                  <div className="space-y-2">
-                    {benefit.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2 text-sm">
-                        <span className={`w-1.5 h-1.5 bg-${benefit.color} rounded-full`}></span>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Developer Fund Announcement */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="card-cyber bg-gradient-cyber text-center">
-            <CardContent className="p-12">
-              <Badge variant="secondary" className="mb-6 bg-primary-foreground/20 text-primary-foreground">
-                🚀 Developer Program
-              </Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary-foreground">
-                $1M Developer Fund
-              </h2>
-              <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                We're investing $1M to support developers building innovative applications on Doma. 
-                Apply for grants, join hackathons, and get funding for your domain projects.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="btn-cyber">
-                  Apply for Grant
-                </Button>
-                <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
-                  Learn More
-                </Button>
-              </div>
-            </CardContent>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-glow">
-              Start Building Today
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              How It Works
             </h2>
             <p className="text-xl text-muted-foreground">
-              Everything you need to build on Doma protocol
+              3 simple steps to tokenize any domain
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                title: "Getting Started",
-                description: "Set up your environment and tokenize your first domain",
-                icon: PlayCircle,
-                link: "/getting-started",
+                step: "01",
+                title: "Connect Domain",
+                description: "Already own a domain? Connect it. Need one? Buy it directly.",
+                icon: Globe,
                 color: "primary"
               },
               {
-                title: "Core Concepts",
-                description: "Learn about domain tokens and rights management",
-                icon: BookOpen,
-                link: "/core-concepts", 
+                step: "02", 
+                title: "Click Tokenize",
+                description: "One click transforms your domain into an NFT on your chosen blockchain.",
+                icon: Zap,
                 color: "accent"
               },
               {
-                title: "API Reference",
-                description: "Complete API documentation and smart contract interfaces",
-                icon: Code,
-                link: "/api-reference",
+                step: "03",
+                title: "Trade & Earn",
+                description: "Sell, rent, or use your domain NFT in DeFi. Instant liquidity.",
+                icon: Coins,
                 color: "success"
-              },
-              {
-                title: "Community",
-                description: "Join Discord, get support, and connect with other builders",
-                icon: Users,
-                link: "/community",
-                color: "warning"
               }
-            ].map((quickLink, index) => (
-              <div key={index} className="card-cyber group hover:border-primary/50 transition-all duration-300">
-                <CardContent className="p-6 text-center">
-                  <div className={`w-12 h-12 bg-${quickLink.color}/20 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                    <quickLink.icon className={`w-6 h-6 text-${quickLink.color}`} />
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                className="text-center relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="relative mb-8">
+                  <div className={`w-24 h-24 bg-${step.color}/20 rounded-full flex items-center justify-center mx-auto border-2 border-${step.color}/30`}>
+                    <step.icon className={`w-10 h-10 text-${step.color}`} />
                   </div>
-                  <h3 className="font-semibold mb-2">{quickLink.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{quickLink.description}</p>
-                  <Button variant="outline" size="sm" className="w-full group-hover:border-primary">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Explore
-                  </Button>
-                </CardContent>
-              </div>
+                  <div className={`absolute -top-2 -right-2 w-8 h-8 bg-${step.color} rounded-full flex items-center justify-center text-${step.color}-foreground font-bold text-sm`}>
+                    {step.step}
+                  </div>
+                  {index < 2 && (
+                    <ArrowRight className="hidden md:block absolute top-1/2 left-full transform -translate-y-1/2 translate-x-6 w-8 h-8 text-muted-foreground" />
+                  )}
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+                <p className="text-muted-foreground text-lg">{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h2 className="text-2xl lg:text-3xl font-bold mb-4">
-            Ready to Transform Domain Ownership?
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Join the DomainFi revolution and build the next generation of domain applications
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="btn-cyber">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Try Testnet
-            </Button>
-            <Button variant="outline">
-              <Github className="w-4 h-4 mr-2" />
-              View on GitHub
-            </Button>
+      {/* Why Choose Doma - Benefits */}
+      <section className="py-24 bg-muted/20">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Why Doma?
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Built for everyone, from domain investors to DeFi enthusiasts
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                title: "Instant Liquidity",
+                description: "Turn your domain into cash in minutes, not months. No more waiting for buyers or escrow.",
+                benefit: "10x faster than traditional sales"
+              },
+              {
+                title: "Global Marketplace", 
+                description: "Access buyers worldwide. Your domain NFT can be traded on any NFT marketplace.",
+                benefit: "Reach millions of potential buyers"
+              },
+              {
+                title: "Earn While You Hold",
+                description: "Rent out your domains, earn staking rewards, or use them as collateral for loans.",
+                benefit: "Multiple income streams"
+              },
+              {
+                title: "Full Control",
+                description: "You keep full DNS control. Update records, host websites, or transfer ownership anytime.",
+                benefit: "Your domain, your rules"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="bg-background rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                <p className="text-muted-foreground mb-4 text-lg">{item.description}</p>
+                <Badge variant="secondary" className="bg-primary/20 text-primary">
+                  {item.benefit}
+                </Badge>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6 max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-cyber rounded-3xl p-12 text-primary-foreground"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Join thousands of domain owners already using Doma
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button className="btn-cyber bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                <PlayCircle className="w-5 h-5 mr-2" />
+                Tokenize Your First Domain
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                <Code className="w-5 h-5 mr-2" />
+                Start Building
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
